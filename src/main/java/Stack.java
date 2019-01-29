@@ -18,6 +18,9 @@ public class Stack<E> {
     }
 
     public E pop(){
+        if((len - 1) < 0){
+            throw new StackIsEmptyException("There is no any element left");
+        }
         E element = peek();
         this.data[--len] = null;
         return element;

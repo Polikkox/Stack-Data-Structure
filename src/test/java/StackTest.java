@@ -86,5 +86,10 @@ class StackTest {
         assertThrows(StackOutOfMemoryException.class, () -> stackInt.push(1));
     }
 
+    @Test
+    void testStackThrowEmptyExceptionIfThereIsNoAnyElementInStack(){
+        assertThrows(StackIsEmptyException.class, () -> stackInt.pop());
+    }
+
 
 }
