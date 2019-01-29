@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -77,6 +76,14 @@ class StackTest {
         int actual = this.stackInt.spaceLeft();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void testStackOutOfMemoryExceptionIsThrowIfThereIsNoAnyFreeSpace(){
+        IntStream.range(0,500)
+                .forEach(i -> this.stackInt.push(i));
+
+        assertThrows(StackOutOfMemoryException.class, () -> stackInt.push(1));
     }
 
 

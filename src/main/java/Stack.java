@@ -11,6 +11,9 @@ public class Stack<E> {
     }
 
     public void push(E element){
+        if(len == maxSize()){
+            throw new StackOutOfMemoryException("Stack is full");
+        }
         data[len++] = element;
     }
 
