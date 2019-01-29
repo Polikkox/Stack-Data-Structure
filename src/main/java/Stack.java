@@ -22,4 +22,8 @@ public class Stack<E> {
     public E peek(){
         return this.data[len - 1];
     }
+
+    public int size(){
+        return this.len - 1;
+    }
 }

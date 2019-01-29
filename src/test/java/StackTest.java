@@ -27,7 +27,8 @@ class StackTest {
         stackString.push("test1");
     }
 
-    @Test void testPopReturnCorrectElement(){
+    @Test
+    void testPopReturnCorrectElement(){
         String expected = "test1";
         String expected2 = "test2";
 
@@ -37,12 +38,24 @@ class StackTest {
         assertEquals(expected2, stackString.pop());
     }
 
-    @Test void testPeekMethodReturnCorrectValue(){
+    @Test
+    void testPeekMethodReturnCorrectValue(){
         IntStream.range(0,501)
                 .forEach(i -> this.stackInt.push(i));
 
         int expected = 500;
         int actual = this.stackInt.pop();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testSizeMethodReturnNumbersOfElementsInStack(){
+        IntStream.range(0,200)
+                .forEach(i -> this.stackInt.push(i));
+
+        int expected = 199;
+        int actual = this.stackInt.size();
 
         assertEquals(expected, actual);
     }
