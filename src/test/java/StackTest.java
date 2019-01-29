@@ -39,11 +39,11 @@ class StackTest {
     }
 
     @Test
-    void testPeekMethodReturnCorrectValue(){
-        IntStream.range(0,501)
+    void testPeekMethodReturnNumber499(){
+        IntStream.range(0,500)
                 .forEach(i -> this.stackInt.push(i));
 
-        int expected = 500;
+        int expected = 499;
         int actual = this.stackInt.pop();
 
         assertEquals(expected, actual);
@@ -54,7 +54,7 @@ class StackTest {
         IntStream.range(0,200)
                 .forEach(i -> this.stackInt.push(i));
 
-        int expected = 199;
+        int expected = 200;
         int actual = this.stackInt.size();
 
         assertEquals(expected, actual);
@@ -62,8 +62,19 @@ class StackTest {
 
     @Test
     void testMaxSizeMethodReturnMaximumCapacityOfStack(){
-        int expected = 501;
+        int expected = 500;
         int actual = this.stackInt.maxSize();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testSpaceLeftReturn300Elements(){
+        IntStream.range(0,200)
+                .forEach(i -> this.stackInt.push(i));
+
+        int expected = 300;
+        int actual = this.stackInt.spaceLeft();
 
         assertEquals(expected, actual);
     }
