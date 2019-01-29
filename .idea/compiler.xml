@@ -11,7 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Stack" target="1.5" />
-      <module name="Stack-Data-Structure" target="7" />
+      <module name="Stack-Data-Structure" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -5,7 +5,7 @@ public class Stack<E> {
 
     @SuppressWarnings({"unchecked"})
     public Stack(){
-        this.data = (E[]) new Object[500];
+        this.data = (E[]) new Object[501];
         this.len = 0;
     }
 

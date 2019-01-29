@@ -1,36 +1,51 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StackTest {
 
-    private Stack<String> stack;
+    private Stack<String> stackString;
+    private Stack<Integer> stackInt;
 
     @BeforeEach
     public void createInstanceOfClass(){
-        this.stack = new Stack<>();
+        this.stackString = new Stack<>();
+        this.stackInt = new Stack<>();
     }
 
     @Test
     public void testCreateInstanceOfClassCorrectly(){
-        assertNotNull(stack);
+        assertNotNull(stackString);
     }
 
     @Test
     public void testAddElementToList(){
-        stack.push("test1");
+        stackString.push("test1");
     }
 
-    @Test void  testPopReturnCorrectElement(){
+    @Test void testPopReturnCorrectElement(){
         String expected = "test1";
         String expected2 = "test2";
-        stack.push(expected);
-        stack.push(expected2);
-        assertEquals(expected2, stack.pop());
+
+        this.stackString.push(expected);
+        this.stackString.push(expected2);
+
+        assertEquals(expected2, stackString.pop());
     }
 
+    @Test void testPeekMethodReturnCorrectValue(){
+        IntStream.range(0,501)
+                .forEach(i -> this.stackInt.push(i));
 
+        int expected = 500;
+        int actual = this.stackInt.pop();
+
+        assertEquals(expected, actual);
+    }
 
 
 }
