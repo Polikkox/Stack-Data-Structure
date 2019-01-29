@@ -2,10 +2,11 @@ public class Stack<E> {
 
     private E[] data;
     private int len;
+    private final int MAXSIZE = 501;
 
     @SuppressWarnings({"unchecked"})
     public Stack(){
-        this.data = (E[]) new Object[501];
+        this.data = (E[]) new Object[MAXSIZE];
         this.len = 0;
     }
 
@@ -25,5 +26,9 @@ public class Stack<E> {
 
     public int size(){
         return this.len - 1;
+    }
+
+    public int maxSize(){
+        return this.MAXSIZE;
     }
 }

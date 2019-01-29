@@ -60,5 +60,13 @@ class StackTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void testMaxSizeMethodReturnMaximumCapacityOfStack(){
+        int expected = 501;
+        int actual = this.stackInt.maxSize();
+
+        assertEquals(expected, actual);
+    }
+
 
 }
