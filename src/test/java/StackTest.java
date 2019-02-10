@@ -10,24 +10,25 @@ class StackTest {
     private Stack<String> stackString;
     private Stack<Integer> stackInt;
 
-    @BeforeEach
-    public void createInstanceOfClass(){
-        this.stackString = new Stack<>();
-        this.stackInt = new Stack<>();
-    }
-
     @Test
     public void testCreateInstanceOfClassCorrectly(){
+        this.stackString = new Stack<>();
+
         assertNotNull(stackString);
     }
 
     @Test
     public void testAddElementToList(){
+        this.stackString = new Stack<>();
         stackString.push("test1");
+        String expected = "test1";
+
+        assertEquals(expected, this.stackString.peek());
     }
 
     @Test
     void testPopReturnCorrectElement(){
+        this.stackString = new Stack<>();
         String expected = "test1";
         String expected2 = "test2";
 
@@ -39,6 +40,7 @@ class StackTest {
 
     @Test
     void testPeekMethodReturnNumber499(){
+        this.stackInt = new Stack<>();
         IntStream.range(0,500)
                 .forEach(i -> this.stackInt.push(i));
 
@@ -50,6 +52,7 @@ class StackTest {
 
     @Test
     void testSizeMethodReturnNumbersOfElementsInStack(){
+        this.stackInt = new Stack<>();
         IntStream.range(0,200)
                 .forEach(i -> this.stackInt.push(i));
 
@@ -61,6 +64,7 @@ class StackTest {
 
     @Test
     void testMaxSizeMethodReturnMaximumCapacityOfStack(){
+        this.stackInt = new Stack<>();
         int expected = 500;
         int actual = this.stackInt.maxSize();
 
@@ -69,6 +73,7 @@ class StackTest {
 
     @Test
     void testSpaceLeftReturn300Elements(){
+        this.stackInt = new Stack<>();
         IntStream.range(0,200)
                 .forEach(i -> this.stackInt.push(i));
 
@@ -80,6 +85,7 @@ class StackTest {
 
     @Test
     void testStackOutOfMemoryExceptionIsThrowIfThereIsNoAnyFreeSpace(){
+        this.stackInt = new Stack<>();
         IntStream.range(0,500)
                 .forEach(i -> this.stackInt.push(i));
 
@@ -88,6 +94,7 @@ class StackTest {
 
     @Test
     void testStackThrowEmptyExceptionIfThereIsNoAnyElementInStack(){
+        this.stackInt = new Stack<>();
         assertThrows(StackIsEmptyException.class, () -> stackInt.pop());
     }
 
